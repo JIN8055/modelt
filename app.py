@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, roc_auc_score
 
 MODEL_PATH = "models/best_model.pkl"
-DATA_URL = "https://raw.githubusercontent.com/JINOSH/modelt/main/data/titanic.csv"
+DATA_URL = "https://raw.githubusercontent.com/JIN8055/modelt/main/Data/titanic.csv"
 
 st.set_page_config(page_title="Titanic Survival Predictor", layout="wide")
 
