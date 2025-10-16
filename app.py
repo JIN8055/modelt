@@ -7,12 +7,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, roc_auc_score
 
 MODEL_PATH = "models/best_model.pkl"
-DATA_PATH = "data/titanic.csv"
+DATA_URL = "https://raw.githubusercontent.com/JINOSH/modelt/main/data/titanic.csv"
+
 st.set_page_config(page_title="Titanic Survival Predictor", layout="wide")
 
 @st.cache_data
-def load_data(path=DATA_PATH):
-    df = pd.read_csv(path)
+def load_data(url=DATA_URL):
+    df = pd.read_csv(url)
     if "Title" not in df.columns and "Name" in df.columns:
         df["Title"] = df["Name"].str.extract(r',\s*([^\.]*)\.', expand=False)
         df["Title"] = df["Title"].replace(
@@ -156,8 +157,8 @@ elif page == "About":
     st.header("About this app")
     st.markdown("""
     - Model: saved at `models/best_model.pkl`  
-    - Data: loaded from `data/titanic.csv`  
-    - Run: `streamlit run app.py`  
+    - Data: loaded from GitHub raw URL  
+    - Run locally: `streamlit run app.py`  
     """)
     st.markdown("Built for the Titanic ML project.")
 
